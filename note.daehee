@@ -1,6 +1,7 @@
 ## Study Issues
-1. namespace/cgroup
-2. capabilities
-3. ipc sockets
-4. sandbox
-5. kernel
+1. chroot
+2. namespace/cgroup
+3. capabilities
+4. ipc sockets
+5. sandbox
+6. kernel
