@@ -11,7 +11,6 @@
 #include <sys/types.h>
 
 int main(int argc, char* argv[]){
-    printf("try to open tcp/udp socket with port lower than 1024\n");
     int port = atoi(argv[1]);
     struct sockaddr_in serv_addr; 
     int ret = socket(AF_INET, SOCK_STREAM, 0);
