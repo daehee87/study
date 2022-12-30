@@ -19,7 +19,6 @@ int _getcwd() {
 
 int main(){
     _getcwd();
-    system("mkdir jail 2>/dev/null");
 
     // get an fd outside chroot. before we jail this process.
     int hole = open("/etc/passwd", O_RDONLY);

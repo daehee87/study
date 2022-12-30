@@ -19,7 +19,6 @@ int _getcwd() {
 
 int main(){
     _getcwd();
-    system("rm -rf jail; mkdir jail 2>/dev/null");
 
     // get a dfd outside chroot. before we jail this process.
     int hole = open(".", 0);

@@ -19,7 +19,6 @@ int _getcwd() {
 
 int main(){
     _getcwd();
-    system("mkdir jail 2>/dev/null");
 
     int ret;
     if((ret = chroot("jail"))<0) { 
